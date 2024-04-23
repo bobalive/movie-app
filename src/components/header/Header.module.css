@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.search{
+    max-width: 300px;
+}
+.searchContainer{
+    display: flex;
+    align-items: center;
+}
+@media (width < 650px) {
+    .header{
+        flex-direction: column;
+    }
+}
