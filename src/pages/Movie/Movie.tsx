@@ -11,18 +11,17 @@ import {useEffect} from "react";
 
 export const Movie = () => {
     const {id} = useParams()
-    const {data, isLoading, isError, isFetched} = useQuery('current', () => getMovie(id))
+    const {data, isLoading, isError, isFetched} = useQuery('current'+id, () => getMovie(id))
     const {currentMovie,setMovie} = useMovieStore()
 
     useEffect(() => {
-        console.log(currentMovie)
         if (isFetched && data) {
             setMovie(data);
         }
         return ()=>{
             setMovie(undefined);
         }
-    }, [isFetched, data]);
+    }, [isLoading, data]);
     if (isError) {
         return <h1>Error</h1>
     }
