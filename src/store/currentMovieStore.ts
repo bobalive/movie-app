@@ -2,7 +2,7 @@ import {create} from "zustand";
 
 export const useMovieStore = create<MovieStore>((set)=>({
     currentMovie:undefined,
-    setMovie:(movie:MovieDetails)=>{
+    setMovie:(movie)=>{
         set({currentMovie:movie})
     }
 }))

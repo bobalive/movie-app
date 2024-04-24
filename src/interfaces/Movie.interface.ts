@@ -71,7 +71,7 @@ type MovieDetails = {
 
 type MovieStore={
     currentMovie?:MovieDetails,
-    setMovie:(movie:MovieDetails)=>void
+    setMovie:(movie?:MovieDetails)=>void
 }
 
 

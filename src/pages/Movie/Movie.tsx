@@ -15,21 +15,23 @@ export const Movie = () => {
     const {currentMovie,setMovie} = useMovieStore()
 
     useEffect(() => {
-        if (isFetched &&data) {
+        console.log(currentMovie)
+        if (isFetched && data) {
             setMovie(data);
         }
-    }, [isFetched,data]);
+        return ()=>{
+            setMovie(undefined);
+        }
+    }, [isFetched, data]);
     if (isError) {
         return <h1>Error</h1>
     }
-    if (isLoading || !currentMovie ) {
+    if (isLoading || !currentMovie) {
         return <img src={gif}/>
     }
-
-
     return (
         <div className={s.movieContainer}>
-            <NavLink to={'/'} className={s.link}><LeftOutlined />Back</NavLink>
+            <NavLink to={'/'} className={s.link}><LeftOutlined/>Back</NavLink>
             <h1 className={s.title}>
                 {currentMovie.title}
             </h1>
